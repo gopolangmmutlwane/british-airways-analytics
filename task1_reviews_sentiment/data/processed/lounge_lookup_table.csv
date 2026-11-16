@@ -1,0 +1,5 @@
+haul,arrival_region,flights_in_data,tier1_avg,tier2_avg,tier3_avg,tier1_busy_p90,tier2_busy_p90,tier3_busy_p90
+LONG,Asia,679,0.6,7.8,30.1,2.0,15.0,51.0
+LONG,Middle East,688,0.6,7.9,30.0,2.0,15.0,50.0
+LONG,North America,2658,0.6,8.1,30.8,2.0,15.0,51.0
+SHORT,Europe,5975,0.6,7.9,30.3,2.0,15.0,50.0

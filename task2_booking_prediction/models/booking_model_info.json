@@ -1,0 +1,47 @@
+{
+  "model": "Gradient Boosting (HistGradientBoostingClassifier), no class weights",
+  "threshold": 0.22,
+  "threshold_rule": "maximum F1 on the validation set",
+  "numeric_features": [
+    "num_passengers",
+    "purchase_lead",
+    "length_of_stay",
+    "flight_hour",
+    "flight_day",
+    "flight_duration",
+    "wants_extra_baggage",
+    "wants_preferred_seat",
+    "wants_in_flight_meals"
+  ],
+  "categorical_features": [
+    "sales_channel",
+    "trip_type",
+    "booking_origin",
+    "origin",
+    "destination"
+  ],
+  "trained_on_rows": 39424,
+  "cv_comparison": {
+    "Baseline (always \"no\")": {
+      "ROC AUC": 0.5,
+      "ROC AUC spread (\u00b1)": 0.0,
+      "PR AUC": 0.15
+    },
+    "Logistic Regression": {
+      "ROC AUC": 0.773,
+      "ROC AUC spread (\u00b1)": 0.009,
+      "PR AUC": 0.344
+    },
+    "Random Forest": {
+      "ROC AUC": 0.785,
+      "ROC AUC spread (\u00b1)": 0.009,
+      "PR AUC": 0.372
+    },
+    "Gradient Boosting": {
+      "ROC AUC": 0.787,
+      "ROC AUC spread (\u00b1)": 0.006,
+      "PR AUC": 0.372
+    }
+  },
+  "scikit_learn_version": "1.9.1"
+}

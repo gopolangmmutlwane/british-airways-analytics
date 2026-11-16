@@ -1,0 +1,27 @@
+{
+  "description": "Hybrid: TF-IDF (words + character n-grams) on the title plus the VADER compound score, combined in a logistic regression",
+  "input": "a DataFrame with columns 'title' (text) and 'vader' (VADER compound score of the title)",
+  "label_rule": "negative if average star rating <= 2.5, positive if >= 3.5",
+  "trained_on_reviews": 2354,
+  "trained_date": "2026-11-16",
+  "scikit_learn_version": "1.9.1",
+  "cv_macro_f1": 0.82,
+  "cv_macro_f1_original_model": 0.806,
+  "test_results": {
+    "VADER (word dictionary)": {
+      "Accuracy": 0.809,
+      "Macro F1": 0.792,
+      "ROC AUC": 0.872
+    },
+    "Text-only (TF-IDF + logistic regression)": {
+      "Accuracy": 0.864,
+      "Macro F1": 0.856,
+      "ROC AUC": 0.912
+    },
+    "Hybrid (TF-IDF + VADER score)": {
+      "Accuracy": 0.845,
+      "Macro F1": 0.836,
+      "ROC AUC": 0.914
+    }
+  }
+}
