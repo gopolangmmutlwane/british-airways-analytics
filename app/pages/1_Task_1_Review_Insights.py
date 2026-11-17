@@ -4,7 +4,7 @@ import streamlit as st
 
 from utils import BLUE, TASK1, load_csv
 
-st.set_page_config(page_title="Review Insights", page_icon="✈️", layout="wide")
+st.set_page_config(page_title="Review Insights", page_icon=":material/flight:", layout="wide")
 
 RATINGS = {
     "seat_comfort": "Seat Comfort",
@@ -192,7 +192,7 @@ with tab_reviews:
     st.dataframe(
         readable[["review_title", "avg_rating", "seat_type", "type_of_traveller", "route", "date_flown"]].head(200),
         column_config={
-            "review_title": "Review title", "avg_rating": st.column_config.NumberColumn("Avg rating", format="%.1f ⭐"),
+            "review_title": "Review title", "avg_rating": st.column_config.NumberColumn("Avg rating", format="%.1f / 5"),
             "seat_type": "Cabin", "type_of_traveller": "Traveller", "route": "Route", "date_flown": "Flown",
         },
         hide_index=True, width="stretch",

@@ -5,7 +5,7 @@ import streamlit as st
 
 from utils import TASK1, load_csv
 
-st.set_page_config(page_title="Lounge Planner", page_icon="✈️", layout="wide")
+st.set_page_config(page_title="Lounge Planner", page_icon=":material/flight:", layout="wide")
 st.title("Task 1 · Lounge Planner, Heathrow Terminal 3")
 st.caption(
     "Estimates how many departing passengers will be eligible for each lounge tier, using the lookup table "

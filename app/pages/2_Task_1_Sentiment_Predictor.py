@@ -6,7 +6,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 from utils import TASK1, load_csv, load_json, load_model
 
-st.set_page_config(page_title="Sentiment Predictor", page_icon="✈️", layout="wide")
+st.set_page_config(page_title="Sentiment Predictor", page_icon=":material/flight:", layout="wide")
 st.title("Task 1 · Sentiment Predictor")
 st.caption(
     "Type a short review title and the model estimates whether the passenger had a positive or negative trip. "
@@ -66,7 +66,7 @@ st.markdown("**Try an example**")
 cols = st.columns(len(EXAMPLES) + 1)
 for col, example in zip(cols, EXAMPLES):
     col.button(example, on_click=use_example, args=(example,), width="stretch")
-cols[-1].button("🎲 Random real review", on_click=use_random_review, width="stretch")
+cols[-1].button("Random real review", icon=":material/shuffle:", on_click=use_random_review, width="stretch")
 
 text = st.text_input("Review title", key="review_text", max_chars=150)
 
@@ -81,12 +81,12 @@ compound = vader.polarity_scores(text)["compound"]
 left, right = st.columns(2, gap="large")
 with left:
     st.subheader("Our hybrid model")
-    label = "Positive 😊" if prob >= 0.5 else "Negative 😞"
+    label = "Positive" if prob >= 0.5 else "Negative"
     st.metric("Prediction", label, f"{prob:.0%} chance positive", delta_color="off", delta_arrow="off")
     st.progress(prob)
 with right:
     st.subheader("VADER alone (word dictionary)")
-    vader_label = "Positive 😊" if compound >= 0.05 else ("Negative 😞" if compound <= -0.05 else "Neutral 😐")
+    vader_label = "Positive" if compound >= 0.05 else ("Negative" if compound <= -0.05 else "Neutral")
     st.metric("Prediction", vader_label, f"compound score {compound:+.2f}", delta_color="off", delta_arrow="off")
     st.progress((compound + 1) / 2)
 

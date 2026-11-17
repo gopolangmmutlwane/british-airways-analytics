@@ -7,7 +7,7 @@ from sklearn.metrics import average_precision_score, roc_auc_score
 
 from utils import BLUE, TASK2, load_csv, load_json, load_model
 
-st.set_page_config(page_title="Booking Model", page_icon="✈️", layout="wide")
+st.set_page_config(page_title="Booking Model", page_icon=":material/flight:", layout="wide")
 st.title("Task 2 · Booking Prediction")
 st.caption(
     "A gradient boosting model trained on 39,424 booking records estimates each customer's chance of completing "

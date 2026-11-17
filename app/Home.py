@@ -3,7 +3,7 @@ from sklearn.metrics import roc_auc_score
 
 from utils import TASK1, TASK2, load_csv, load_json, load_model
 
-st.set_page_config(page_title="British Airways Customer Analytics", page_icon="✈️", layout="wide")
+st.set_page_config(page_title="British Airways Customer Analytics", page_icon=":material/flight:", layout="wide")
 
 
 @st.cache_data
