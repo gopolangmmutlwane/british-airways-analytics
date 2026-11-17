@@ -2,7 +2,7 @@
 
 Two end-to-end data science projects based on the **Forage British Airways Data Science job simulation**, rebuilt with leak-free modelling, honest evaluation and an interactive Streamlit app.
 
-**Live app:** _link coming after deployment_
+**Live app:** [ba-customer-analytics.streamlit.app](https://ba-customer-analytics.streamlit.app) (if it has been idle, it may take a few seconds to wake up)
 
 | | Task 1 · Reviews & lounges | Task 2 · Booking prediction |
 |---|---|---|

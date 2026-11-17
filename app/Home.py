@@ -35,9 +35,11 @@ with col1:
         "- A lounge demand lookup table for Heathrow Terminal 3 from 10,000 scheduled flights"
     )
     m1, m2 = st.columns(2)
-    m1.metric("Sentiment macro F1 (held-out reviews)", f"{hybrid['Macro F1']:.3f}",
-              f"{hybrid['Macro F1'] - vader['Macro F1']:+.3f} vs VADER alone")
-    m2.metric("Reviews analysed", "4,015")
+    m1.metric("Sentiment F1", f"{hybrid['Macro F1']:.3f}",
+              help="Macro F1 of the hybrid sentiment model on 471 held-out reviews.")
+    m2.metric("Reviews", "4,015", help="Skytrax reviews after cleaning.")
+    st.caption(f"Sentiment F1 is measured on 471 held-out reviews, {hybrid['Macro F1'] - vader['Macro F1']:.3f} "
+               f"higher than VADER alone ({vader['Macro F1']:.3f}).")
 
 with col2:
     st.subheader("Task 2 · Booking prediction")
@@ -47,8 +49,12 @@ with col2:
         "- Campaign value analysis showing when targeting pays off"
     )
     m3, m4 = st.columns(2)
-    m3.metric("ROC AUC (unseen customers)", f"{booking_test_auc():.3f}")
-    m4.metric("Bookers reached in top 20%", "48%", "2.4× random")
+    m3.metric("ROC AUC", f"{booking_test_auc():.3f}",
+              help="Measured on 9,857 customers the model never saw during training.")
+    m4.metric("Top 20% reach", "48%",
+              help="Share of all bookers found among the 20% of customers with the highest scores.")
+    st.caption("ROC AUC is measured on 9,857 unseen customers. The top 20% of scores contains "
+               "48% of all bookers, 2.4 times better than random targeting.")
 
 st.divider()
 st.markdown(
@@ -57,5 +63,7 @@ st.markdown(
 )
 st.caption(
     "Data: Skytrax (airlinequality.com) reviews scraped February 2026; schedule and booking datasets provided by "
-    "Forage. Figures are for portfolio purposes and are not official British Airways data."
+    "Forage. Figures are for portfolio purposes and are not official British Airways data. "
+    "Code: [github.com/gopolangmmutlwane/british-airways-analytics]"
+    "(https://github.com/gopolangmmutlwane/british-airways-analytics)"
 )
